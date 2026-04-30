@@ -10,17 +10,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --ink:    #1a1a2e;
-  --ink2:   #22223b;
-  --ink3:   #2d2d44;
-  --coral:  #f97316;
-  --coral2: #ea6c0b;
-  --coralL: #fff7ed;
-  --off:    #f8f8fb;
+  --ink:    #07111e;
+  --ink2:   #0d1d35;
+  --ink3:   #122040;
+  --coral:  #0666db;
+  --coral2: #0550b8;
+  --coralL: #e8f2ff;
+  --off:    #f5f8ff;
   --white:  #ffffff;
-  --text:   #1a1a2e;
-  --body:   rgba(26,26,46,0.65);
-  --dim:    rgba(26,26,46,0.38);
+  --text:   #07111e;
+  --body:   rgba(7,17,30,0.65);
+  --dim:    rgba(7,17,30,0.38);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -35,16 +35,12 @@ nav {
   transition: background .35s, box-shadow .35s;
 }
 nav.scrolled {
-  background: rgba(26,26,46,.97);
+  background: rgba(7,17,30,.97);
   backdrop-filter: blur(18px);
   box-shadow: 0 1px 0 rgba(255,255,255,.06);
 }
-.nav-brand {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 1.12rem; font-weight: 800;
-  color: #fff; text-decoration: none; letter-spacing: -.01em;
-}
-.nav-brand .acc { color: var(--coral); }
+.nav-brand { text-decoration: none; display: flex; align-items: center; }
+.nav-brand img { height: 46px; width: auto; display: block; }
 .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
 .nav-links a {
   color: rgba(255,255,255,.62); text-decoration: none;
@@ -62,7 +58,7 @@ nav.scrolled {
 .hamburger span { display: block; width: 22px; height: 2px; background: #fff; transition: all .3s; }
 .mob-menu {
   display: none; position: fixed; top: 76px; left: 0; right: 0;
-  background: rgba(26,26,46,.98); backdrop-filter: blur(18px);
+  background: rgba(7,17,30,.98); backdrop-filter: blur(18px);
   z-index: 190; padding: 1.5rem 6%; border-bottom: 1px solid rgba(255,255,255,.06);
 }
 .mob-menu.open { display: block; }
@@ -87,7 +83,7 @@ nav.scrolled {
 }
 .hero-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(110deg, rgba(26,26,46,.95) 0%, rgba(26,26,46,.80) 52%, rgba(26,26,46,.42) 100%);
+  background: linear-gradient(110deg, rgba(7,17,30,.95) 0%, rgba(7,17,30,.80) 52%, rgba(7,17,30,.42) 100%);
 }
 .hero-inner {
   position: relative; z-index: 2;
@@ -118,7 +114,7 @@ h1.hero-h1 .acc { color: var(--coral); }
   font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: .95rem;
   padding: .95rem 2.2rem; border-radius: 9px; transition: all .25s; border: none; cursor: pointer;
 }
-.btn-primary:hover { background: var(--coral2); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(249,115,22,.38); }
+.btn-primary:hover { background: var(--coral2); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(6,102,219,.38); }
 .btn-secondary {
   display: inline-flex; align-items: center; gap: .5rem;
   background: transparent; color: rgba(255,255,255,.78); text-decoration: none;
@@ -167,7 +163,7 @@ section { padding: 5.5rem 6%; }
 .stock-intro { max-width: 580px; margin-bottom: 3.5rem; }
 .stock-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
 .stock-card {
-  background: var(--white); border: 1px solid rgba(26,26,46,.07);
+  background: var(--white); border: 1px solid rgba(7,17,30,.07);
   border-radius: 16px; padding: 2rem 1.8rem; position: relative; overflow: hidden;
   transition: all .3s;
 }
@@ -175,11 +171,11 @@ section { padding: 5.5rem 6%; }
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
   background: var(--coral); transform: scaleX(0); transform-origin: left; transition: transform .3s;
 }
-.stock-card:hover { box-shadow: 0 12px 40px rgba(249,115,22,.1); transform: translateY(-4px); border-color: rgba(249,115,22,.25); }
+.stock-card:hover { box-shadow: 0 12px 40px rgba(6,102,219,.1); transform: translateY(-4px); border-color: rgba(6,102,219,.25); }
 .stock-card:hover::after { transform: scaleX(1); }
 .stock-ico {
   width: 50px; height: 50px; border-radius: 14px;
-  background: rgba(249,115,22,.08); border: 1px solid rgba(249,115,22,.16);
+  background: rgba(6,102,219,.08); border: 1px solid rgba(6,102,219,.16);
   display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem;
 }
 .stock-ico svg { width: 24px; height: 24px; stroke: var(--coral2); }
@@ -201,7 +197,7 @@ section { padding: 5.5rem 6%; }
 .g-item:first-child { grid-row: 1 / 3; }
 .g-label {
   position: absolute; bottom: 0; left: 0; right: 0; padding: 1.4rem 1rem .85rem;
-  background: linear-gradient(to top, rgba(26,26,46,.82), transparent);
+  background: linear-gradient(to top, rgba(7,17,30,.82), transparent);
   font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
   color: rgba(255,255,255,.85); opacity: 0; transition: opacity .3s;
 }
@@ -217,7 +213,7 @@ section { padding: 5.5rem 6%; }
   background: var(--coral); color: #fff;
   font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
   border-radius: 14px; padding: 1.1rem 1.5rem; text-align: center;
-  box-shadow: 0 8px 24px rgba(249,115,22,.4);
+  box-shadow: 0 8px 24px rgba(6,102,219,.4);
 }
 .about-img-badge-n { font-size: 2.4rem; line-height: 1; }
 .about-img-badge-l { font-size: .68rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; margin-top: .2rem; }
@@ -225,7 +221,7 @@ section { padding: 5.5rem 6%; }
 .a-item { display: flex; align-items: flex-start; gap: .85rem; }
 .a-check {
   width: 26px; height: 26px; border-radius: 7px; flex-shrink: 0;
-  background: rgba(249,115,22,.1); border: 1px solid rgba(249,115,22,.2);
+  background: rgba(6,102,219,.1); border: 1px solid rgba(6,102,219,.2);
   display: flex; align-items: center; justify-content: center;
 }
 .a-check svg { width: 13px; height: 13px; stroke: var(--coral); }
@@ -247,11 +243,11 @@ section { padding: 5.5rem 6%; }
 .rev-btn {
   display: inline-flex; align-items: center; gap: .4rem;
   padding: .55rem 1.1rem; border-radius: 7px;
-  background: rgba(249,115,22,.1); border: 1px solid rgba(249,115,22,.28);
+  background: rgba(6,102,219,.1); border: 1px solid rgba(6,102,219,.28);
   color: var(--coral); font-size: .76rem; font-weight: 600;
   text-decoration: none; transition: all .25s;
 }
-.rev-btn:hover { background: rgba(249,115,22,.2); }
+.rev-btn:hover { background: rgba(6,102,219,.2); }
 .reviews-intro .sh { color: #fff; margin-bottom: .8rem; }
 .reviews-intro p { font-size: .93rem; color: rgba(255,255,255,.52); line-height: 1.8; max-width: 440px; }
 .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
@@ -260,7 +256,7 @@ section { padding: 5.5rem 6%; }
   border-radius: 16px; padding: 1.7rem; transition: border-color .28s;
   display: flex; flex-direction: column; gap: .9rem;
 }
-.rev-card:hover { border-color: rgba(249,115,22,.25); }
+.rev-card:hover { border-color: rgba(6,102,219,.25); }
 .rev-header { display: flex; align-items: center; gap: .8rem; }
 .rev-avatar {
   width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
@@ -283,7 +279,7 @@ section { padding: 5.5rem 6%; }
 .c-row { display: flex; align-items: flex-start; gap: .85rem; }
 .c-ico {
   width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
-  background: rgba(249,115,22,.08); border: 1px solid rgba(249,115,22,.18);
+  background: rgba(6,102,219,.08); border: 1px solid rgba(6,102,219,.18);
   display: flex; align-items: center; justify-content: center;
 }
 .c-ico svg { width: 18px; height: 18px; stroke: var(--coral2); }
@@ -291,8 +287,8 @@ section { padding: 5.5rem 6%; }
 .c-val { font-size: .92rem; color: var(--text); font-weight: 500; text-decoration: none; transition: color .2s; display: block; }
 .c-val:hover { color: var(--coral2); }
 .contact-form-wrap {
-  background: var(--off); border: 1px solid rgba(249,115,22,.1);
-  border-radius: 20px; padding: 2.5rem; box-shadow: 0 8px 40px rgba(26,26,46,.06);
+  background: var(--off); border: 1px solid rgba(6,102,219,.1);
+  border-radius: 20px; padding: 2.5rem; box-shadow: 0 8px 40px rgba(7,17,30,.06);
 }
 .form-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.25rem; font-weight: 800; color: var(--text); margin-bottom: 1.6rem; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: .85rem; }
@@ -302,13 +298,13 @@ section { padding: 5.5rem 6%; }
 .form-group select,
 .form-group textarea {
   width: 100%; padding: .78rem 1rem;
-  background: var(--white); border: 1px solid rgba(26,26,46,.1);
+  background: var(--white); border: 1px solid rgba(7,17,30,.1);
   border-radius: 9px; color: var(--text); font-family: 'Inter', sans-serif;
   font-size: .9rem; outline: none; transition: border-color .2s, box-shadow .2s;
 }
 .form-group input::placeholder, .form-group textarea::placeholder { color: var(--dim); }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-  border-color: var(--coral); box-shadow: 0 0 0 3px rgba(249,115,22,.12);
+  border-color: var(--coral); box-shadow: 0 0 0 3px rgba(6,102,219,.12);
 }
 .form-group select option { background: #fff; color: var(--text); }
 .form-group textarea { resize: vertical; min-height: 110px; }
@@ -318,7 +314,7 @@ section { padding: 5.5rem 6%; }
   cursor: pointer; transition: all .25s; margin-top: .2rem;
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
-.form-submit:hover { background: var(--coral2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(249,115,22,.3); }
+.form-submit:hover { background: var(--coral2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(6,102,219,.3); }
 .form-note { font-size: .74rem; color: var(--dim); text-align: center; margin-top: .75rem; }
 
 /* ── FOOTER ── */
@@ -372,7 +368,7 @@ footer {
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="#" class="nav-brand">2 <span class="acc">Fantastic</span> Kaiapoi</a>
+  <a href="#" class="nav-brand"><img src="logo.png" alt="2 Fantastic Kaiapoi"></a>
   <ul class="nav-links">
     <li><a href="#stock">What We Stock</a></li>
     <li><a href="#about">About</a></li>
@@ -618,7 +614,7 @@ footer {
   <div class="reviews-grid fade-up">
     <div class="rev-card">
       <div class="rev-header">
-        <div class="rev-avatar" style="background:linear-gradient(135deg,#f97316,#ea6c0b)">K</div>
+        <div class="rev-avatar" style="background:linear-gradient(135deg,#0666db,#0550b8)">K</div>
         <div>
           <div class="rev-name">Kate M.</div>
           <div class="rev-loc">Kaiapoi</div>
@@ -633,7 +629,7 @@ footer {
     </div>
     <div class="rev-card">
       <div class="rev-header">
-        <div class="rev-avatar" style="background:linear-gradient(135deg,#22223b,#2d2d44)">J</div>
+        <div class="rev-avatar" style="background:linear-gradient(135deg,#0550b8,#0666db)">J</div>
         <div>
           <div class="rev-name">James R.</div>
           <div class="rev-loc">Rangiora</div>
@@ -648,7 +644,7 @@ footer {
     </div>
     <div class="rev-card">
       <div class="rev-header">
-        <div class="rev-avatar" style="background:linear-gradient(135deg,#b45309,#f97316)">S</div>
+        <div class="rev-avatar" style="background:linear-gradient(135deg,#b45309,#0666db)">S</div>
         <div>
           <div class="rev-name">Sarah L.</div>
           <div class="rev-loc">Kaiapoi</div>
@@ -750,7 +746,7 @@ footer {
 <!-- FOOTER -->
 <footer>
   <div>
-    <div class="foot-brand">2 <span class="acc">Fantastic</span> Kaiapoi</div>
+    <div class="foot-brand"><img src="logo.png" alt="2 Fantastic Kaiapoi" style="height:36px;width:auto;display:block;margin-bottom:.4rem;filter:brightness(0) invert(1)"></div>
     <div class="foot-sub">Gift &amp; Variety Store · 8A/77 Hilton Street, Kaiapoi 7630</div>
     <div class="foot-copy">© 2025 2 Fantastic Kaiapoi · 03 327 0508</div>
   </div>
