@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2 Fantastic Kaiapoi | Gift & Variety Store</title>
+<meta name="description" content="2 Fantastic — Kaiapoi's favourite variety and gift store. Toys, gifts, stationery, party supplies, cosmetics and more at 8A/77 Hilton Street, Kaiapoi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:    #1a1a2e;
+  --ink2:   #22223b;
+  --ink3:   #2d2d44;
+  --coral:  #f97316;
+  --coral2: #ea6c0b;
+  --coralL: #fff7ed;
+  --off:    #f8f8fb;
+  --white:  #ffffff;
+  --text:   #1a1a2e;
+  --body:   rgba(26,26,46,0.65);
+  --dim:    rgba(26,26,46,0.38);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 6%; height: 76px;
+  transition: background .35s, box-shadow .35s;
+}
+nav.scrolled {
+  background: rgba(26,26,46,.97);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 1px 0 rgba(255,255,255,.06);
+}
+.nav-brand {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.12rem; font-weight: 800;
+  color: #fff; text-decoration: none; letter-spacing: -.01em;
+}
+.nav-brand .acc { color: var(--coral); }
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+.nav-links a {
+  color: rgba(255,255,255,.62); text-decoration: none;
+  font-size: .78rem; font-weight: 500; letter-spacing: .09em; text-transform: uppercase;
+  transition: color .2s;
+}
+.nav-links a:hover { color: #fff; }
+.nav-cta {
+  background: var(--coral) !important; color: #fff !important; font-weight: 600 !important;
+  padding: .45rem 1.25rem; border-radius: 7px;
+  transition: background .2s, transform .2s !important;
+}
+.nav-cta:hover { background: var(--coral2) !important; transform: translateY(-1px) !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: #fff; transition: all .3s; }
+.mob-menu {
+  display: none; position: fixed; top: 76px; left: 0; right: 0;
+  background: rgba(26,26,46,.98); backdrop-filter: blur(18px);
+  z-index: 190; padding: 1.5rem 6%; border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.mob-menu.open { display: block; }
+.mob-menu a {
+  display: block; padding: .75rem 0; color: rgba(255,255,255,.65);
+  text-decoration: none; font-size: .9rem; font-weight: 500;
+  letter-spacing: .08em; text-transform: uppercase;
+  border-bottom: 1px solid rgba(255,255,255,.06); transition: color .2s;
+}
+.mob-menu a:last-child { border: none; background: var(--coral); color: #fff; text-align: center; border-radius: 6px; margin-top: .6rem; padding: .75rem; font-weight: 600; }
+.mob-menu a:hover { color: #fff; }
+
+/* ── HERO ── */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1800&q=85&fit=crop') center/cover no-repeat;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(110deg, rgba(26,26,46,.95) 0%, rgba(26,26,46,.80) 52%, rgba(26,26,46,.42) 100%);
+}
+.hero-inner {
+  position: relative; z-index: 2;
+  padding: 76px 6% 5rem;
+  max-width: 720px;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: .55rem;
+  font-size: .7rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--coral); margin-bottom: 1.6rem;
+}
+.hero-tag::before { content: ''; width: 24px; height: 2px; background: var(--coral); }
+h1.hero-h1 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(2.9rem, 5.8vw, 5.2rem);
+  font-weight: 800; line-height: .95; color: #fff;
+  letter-spacing: -.03em; margin-bottom: 1.4rem;
+}
+h1.hero-h1 .acc { color: var(--coral); }
+.hero-sub {
+  font-size: 1.05rem; color: rgba(255,255,255,.75);
+  line-height: 1.78; max-width: 490px; margin-bottom: 2.2rem;
+}
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.8rem; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: var(--coral); color: #fff; text-decoration: none;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: .95rem;
+  padding: .95rem 2.2rem; border-radius: 9px; transition: all .25s; border: none; cursor: pointer;
+}
+.btn-primary:hover { background: var(--coral2); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(249,115,22,.38); }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: transparent; color: rgba(255,255,255,.78); text-decoration: none;
+  font-weight: 500; font-size: .95rem; padding: .95rem 1.8rem;
+  border-radius: 9px; border: 1px solid rgba(255,255,255,.25); transition: all .25s;
+}
+.btn-secondary:hover { border-color: var(--coral); color: var(--coral); }
+.hero-pills { display: flex; gap: 2rem; flex-wrap: wrap; }
+.h-pill {
+  display: flex; align-items: center; gap: .45rem;
+  font-size: .78rem; color: rgba(255,255,255,.55); font-weight: 500;
+}
+.h-pill svg { width: 14px; height: 14px; stroke: var(--coral); flex-shrink: 0; }
+
+/* ── TRUST BAR ── */
+.trust-bar {
+  background: var(--coral);
+  padding: .88rem 6%;
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 1.5rem 3.5rem;
+}
+.t-item {
+  display: flex; align-items: center; gap: .65rem;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-size: .76rem; font-weight: 700;
+  letter-spacing: .07em; text-transform: uppercase; color: #fff;
+}
+.t-item svg { width: 15px; height: 15px; stroke: #fff; flex-shrink: 0; }
+
+/* ── SECTIONS ── */
+section { padding: 5.5rem 6%; }
+.eyebrow {
+  font-size: .68rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--coral2); margin-bottom: .75rem;
+  display: flex; align-items: center; gap: .5rem;
+}
+.eyebrow::before { content: ''; width: 16px; height: 2px; background: var(--coral); }
+.sh {
+  font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  color: var(--text); letter-spacing: -.025em; line-height: .97; margin-bottom: 1.1rem;
+}
+.sec-body { font-size: .95rem; color: var(--body); line-height: 1.82; max-width: 520px; }
+
+/* ── WHAT WE STOCK ── */
+#stock { background: var(--off); }
+.stock-intro { max-width: 580px; margin-bottom: 3.5rem; }
+.stock-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.stock-card {
+  background: var(--white); border: 1px solid rgba(26,26,46,.07);
+  border-radius: 16px; padding: 2rem 1.8rem; position: relative; overflow: hidden;
+  transition: all .3s;
+}
+.stock-card::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--coral); transform: scaleX(0); transform-origin: left; transition: transform .3s;
+}
+.stock-card:hover { box-shadow: 0 12px 40px rgba(249,115,22,.1); transform: translateY(-4px); border-color: rgba(249,115,22,.25); }
+.stock-card:hover::after { transform: scaleX(1); }
+.stock-ico {
+  width: 50px; height: 50px; border-radius: 14px;
+  background: rgba(249,115,22,.08); border: 1px solid rgba(249,115,22,.16);
+  display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem;
+}
+.stock-ico svg { width: 24px; height: 24px; stroke: var(--coral2); }
+.stock-name { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: .5rem; }
+.stock-desc { font-size: .86rem; color: var(--body); line-height: 1.68; }
+
+/* ── GALLERY ── */
+#gallery { background: var(--white); }
+.gallery-intro { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-rows: 280px 220px;
+  gap: 1rem;
+}
+.g-item { border-radius: 14px; overflow: hidden; position: relative; }
+.g-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s; }
+.g-item:hover img { transform: scale(1.05); }
+.g-item:first-child { grid-row: 1 / 3; }
+.g-label {
+  position: absolute; bottom: 0; left: 0; right: 0; padding: 1.4rem 1rem .85rem;
+  background: linear-gradient(to top, rgba(26,26,46,.82), transparent);
+  font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  color: rgba(255,255,255,.85); opacity: 0; transition: opacity .3s;
+}
+.g-item:hover .g-label { opacity: 1; }
+
+/* ── ABOUT ── */
+#about { background: var(--off); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.about-img { border-radius: 20px; overflow: hidden; position: relative; }
+.about-img img { width: 100%; height: 460px; object-fit: cover; display: block; }
+.about-img-badge {
+  position: absolute; bottom: -1rem; right: -1rem;
+  background: var(--coral); color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
+  border-radius: 14px; padding: 1.1rem 1.5rem; text-align: center;
+  box-shadow: 0 8px 24px rgba(249,115,22,.4);
+}
+.about-img-badge-n { font-size: 2.4rem; line-height: 1; }
+.about-img-badge-l { font-size: .68rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; margin-top: .2rem; }
+.about-list { display: flex; flex-direction: column; gap: .8rem; margin-top: 2rem; }
+.a-item { display: flex; align-items: flex-start; gap: .85rem; }
+.a-check {
+  width: 26px; height: 26px; border-radius: 7px; flex-shrink: 0;
+  background: rgba(249,115,22,.1); border: 1px solid rgba(249,115,22,.2);
+  display: flex; align-items: center; justify-content: center;
+}
+.a-check svg { width: 13px; height: 13px; stroke: var(--coral); }
+.a-item-text strong { font-size: .9rem; font-weight: 600; color: var(--text); display: block; margin-bottom: .1rem; }
+.a-item-text span { font-size: .84rem; color: var(--body); line-height: 1.6; }
+
+/* ── REVIEWS ── */
+#reviews { background: var(--ink2); }
+.reviews-layout { display: grid; grid-template-columns: auto 1fr; gap: 4rem; align-items: center; margin-bottom: 3.5rem; }
+.g-badge {
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+  border-radius: 20px; padding: 2rem 2.4rem; text-align: center; min-width: 210px;
+}
+.g-badge-lbl { font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: .4rem; }
+.g-score { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 4rem; font-weight: 800; color: #fff; line-height: 1; }
+.g-stars { display: flex; justify-content: center; gap: 3px; margin: .4rem 0; }
+.g-star { color: #f59e0b; font-size: 1.1rem; }
+.g-count { font-size: .72rem; color: rgba(255,255,255,.35); margin-bottom: 1.2rem; }
+.rev-btn {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .55rem 1.1rem; border-radius: 7px;
+  background: rgba(249,115,22,.1); border: 1px solid rgba(249,115,22,.28);
+  color: var(--coral); font-size: .76rem; font-weight: 600;
+  text-decoration: none; transition: all .25s;
+}
+.rev-btn:hover { background: rgba(249,115,22,.2); }
+.reviews-intro .sh { color: #fff; margin-bottom: .8rem; }
+.reviews-intro p { font-size: .93rem; color: rgba(255,255,255,.52); line-height: 1.8; max-width: 440px; }
+.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.rev-card {
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px; padding: 1.7rem; transition: border-color .28s;
+  display: flex; flex-direction: column; gap: .9rem;
+}
+.rev-card:hover { border-color: rgba(249,115,22,.25); }
+.rev-header { display: flex; align-items: center; gap: .8rem; }
+.rev-avatar {
+  width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-size: .9rem; font-weight: 800; color: #fff;
+}
+.rev-name { font-size: .9rem; font-weight: 600; color: #fff; }
+.rev-loc { font-size: .73rem; color: rgba(255,255,255,.38); }
+.rev-stars { display: flex; gap: 2px; }
+.r-star { color: #f59e0b; font-size: .85rem; }
+.rev-text { font-size: .87rem; color: rgba(255,255,255,.6); line-height: 1.74; font-style: italic; }
+.rev-src { display: flex; align-items: center; gap: .4rem; font-size: .7rem; color: rgba(255,255,255,.26); margin-top: auto; }
+
+/* ── CONTACT ── */
+#contact { background: var(--white); }
+.contact-grid { display: grid; grid-template-columns: 1fr 500px; gap: 5rem; align-items: start; }
+.contact-info .sh { margin-bottom: .9rem; }
+.contact-info > p { font-size: .93rem; color: var(--body); line-height: 1.82; margin-bottom: 2.2rem; max-width: 380px; }
+.contact-details { display: flex; flex-direction: column; gap: 1rem; }
+.c-row { display: flex; align-items: flex-start; gap: .85rem; }
+.c-ico {
+  width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
+  background: rgba(249,115,22,.08); border: 1px solid rgba(249,115,22,.18);
+  display: flex; align-items: center; justify-content: center;
+}
+.c-ico svg { width: 18px; height: 18px; stroke: var(--coral2); }
+.c-label { font-size: .67rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); margin-bottom: .12rem; }
+.c-val { font-size: .92rem; color: var(--text); font-weight: 500; text-decoration: none; transition: color .2s; display: block; }
+.c-val:hover { color: var(--coral2); }
+.contact-form-wrap {
+  background: var(--off); border: 1px solid rgba(249,115,22,.1);
+  border-radius: 20px; padding: 2.5rem; box-shadow: 0 8px 40px rgba(26,26,46,.06);
+}
+.form-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.25rem; font-weight: 800; color: var(--text); margin-bottom: 1.6rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: .85rem; }
+.form-group { margin-bottom: .9rem; }
+.form-group label { display: block; font-size: .68rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--dim); margin-bottom: .38rem; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%; padding: .78rem 1rem;
+  background: var(--white); border: 1px solid rgba(26,26,46,.1);
+  border-radius: 9px; color: var(--text); font-family: 'Inter', sans-serif;
+  font-size: .9rem; outline: none; transition: border-color .2s, box-shadow .2s;
+}
+.form-group input::placeholder, .form-group textarea::placeholder { color: var(--dim); }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: var(--coral); box-shadow: 0 0 0 3px rgba(249,115,22,.12);
+}
+.form-group select option { background: #fff; color: var(--text); }
+.form-group textarea { resize: vertical; min-height: 110px; }
+.form-submit {
+  width: 100%; padding: .95rem; background: var(--coral); color: #fff;
+  border: none; border-radius: 9px; font-size: .95rem; font-weight: 700;
+  cursor: pointer; transition: all .25s; margin-top: .2rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.form-submit:hover { background: var(--coral2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(249,115,22,.3); }
+.form-note { font-size: .74rem; color: var(--dim); text-align: center; margin-top: .75rem; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink);
+  padding: 2.8rem 6%;
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: center; gap: 2rem;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.foot-brand { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 800; color: #fff; margin-bottom: .3rem; }
+.foot-brand .acc { color: var(--coral); }
+.foot-sub { font-size: .76rem; color: rgba(255,255,255,.4); margin-bottom: .25rem; }
+.foot-copy { font-size: .72rem; color: rgba(255,255,255,.24); }
+.foot-links { display: flex; gap: 2rem; }
+.foot-links a { font-size: .73rem; color: rgba(255,255,255,.38); text-decoration: none; letter-spacing: .08em; text-transform: uppercase; transition: color .2s; }
+.foot-links a:hover { color: var(--coral); }
+
+/* ── ANIMATIONS ── */
+.fade-up { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+.fade-up.visible { opacity: 1; transform: none; }
+.s1{transition-delay:.08s}.s2{transition-delay:.16s}.s3{transition-delay:.24s}
+.s4{transition-delay:.32s}.s5{transition-delay:.40s}.s6{transition-delay:.48s}
+
+/* ── RESPONSIVE ── */
+@media(max-width: 1060px) {
+  .stock-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-img img { height: 380px; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .g-item:first-child { grid-row: auto; }
+  .reviews-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .reviews-grid { grid-template-columns: 1fr 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  footer { grid-template-columns: 1fr; text-align: center; }
+  .foot-links { justify-content: center; }
+}
+@media(max-width: 680px) {
+  section { padding: 4rem 5%; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .stock-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  h1.hero-h1 { font-size: clamp(2.6rem, 9vw, 3.5rem); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-brand">2 <span class="acc">Fantastic</span> Kaiapoi</a>
+  <ul class="nav-links">
+    <li><a href="#stock">What We Stock</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="#stock" onclick="closeMob()">What We Stock</a>
+  <a href="#about" onclick="closeMob()">About</a>
+  <a href="#reviews" onclick="closeMob()">Reviews</a>
+  <a href="#contact" onclick="closeMob()">Get in Touch</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Kaiapoi · Waimakariri, New Zealand</div>
+    <h1 class="hero-h1">
+      Kaiapoi's <span class="acc">Favourite</span><br>
+      Gift &amp; Variety<br>Store.
+    </h1>
+    <p class="hero-sub">Affordable gifts, toys, stationery, party supplies, cosmetics and so much more — all under one roof at 77 Hilton Street, Kaiapoi. Something for every occasion, every budget.</p>
+    <div class="hero-btns">
+      <a href="#stock" class="btn-primary">See What We Stock →</a>
+      <a href="#contact" class="btn-secondary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Find Us
+      </a>
+    </div>
+    <div class="hero-pills">
+      <div class="h-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        4.3 Stars · 49 Reviews
+      </div>
+      <div class="h-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Locally Owned &amp; Operated
+      </div>
+      <div class="h-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Free Off-Street Parking
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="t-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    4.3 Stars on Google
+  </div>
+  <div class="t-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    49 Google Reviews
+  </div>
+  <div class="t-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    77 Hilton Street, Kaiapoi
+  </div>
+  <div class="t-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/></svg>
+    Free Off-Street Parking
+  </div>
+</div>
+
+<!-- WHAT WE STOCK -->
+<section id="stock">
+  <div class="stock-intro fade-up">
+    <div class="eyebrow">What we stock</div>
+    <h2 class="sh">Something for everyone,<br>every occasion.</h2>
+    <p class="sec-body">Whether you're hunting for a birthday gift, party decorations, or just something fun — 2 Fantastic Kaiapoi has you covered. We carry a huge range of affordable products all under one roof. Pop in and see what's new.</p>
+  </div>
+  <div class="stock-grid">
+
+    <div class="stock-card fade-up s1">
+      <div class="stock-ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+      </div>
+      <div class="stock-name">Gifts &amp; Keepsakes</div>
+      <p class="stock-desc">A constantly refreshed range of gifts for every age and occasion. Birthdays, housewarmings, thank-yous — we've always got something special.</p>
+    </div>
+
+    <div class="stock-card fade-up s2">
+      <div class="stock-ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/><path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/><path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/><path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"/><path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg>
+      </div>
+      <div class="stock-name">Toys &amp; Games</div>
+      <p class="stock-desc">Fun for all ages — from toddler favourites to games the whole family will love. Always a guaranteed hit and great value for birthday presents.</p>
+    </div>
+
+    <div class="stock-card fade-up s3">
+      <div class="stock-ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      </div>
+      <div class="stock-name">Stationery &amp; Cards</div>
+      <p class="stock-desc">Pens, notebooks, wrapping paper, and greeting cards for every occasion. Perfect for school, office, or sending a thoughtful note to someone special.</p>
+    </div>
+
+    <div class="stock-card fade-up s4">
+      <div class="stock-ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 12H20M12 2.5V4M4.929 4.929l1.06 1.06M2.5 12H4M4.929 19.071l1.06-1.06M12 20v1.5M19.071 19.071l-1.06-1.06"/><circle cx="12" cy="12" r="4"/></svg>
+      </div>
+      <div class="stock-name">Party Supplies</div>
+      <p class="stock-desc">Balloons, decorations, tableware and everything else you need to throw a brilliant party. Kids' birthdays and celebrations sorted in one easy stop.</p>
+    </div>
+
+    <div class="stock-card fade-up s5">
+      <div class="stock-ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <div class="stock-name">Cosmetics &amp; Beauty</div>
+      <p class="stock-desc">Everyday beauty and skincare essentials at prices that won't break the bank. A great way to treat yourself — or someone else — without the big price tag.</p>
+    </div>
+
+    <div class="stock-card fade-up s6">
+      <div class="stock-ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18l-2 13H5L3 3z"/><path d="M3 3H1"/><path d="M8 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/><path d="M16 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>
+      </div>
+      <div class="stock-name">Baking &amp; Kitchen</div>
+      <p class="stock-desc">Baking supplies, kitchen accessories and handy household items at great everyday prices. Everything you need to get creative in the kitchen.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-intro fade-up">
+    <div>
+      <div class="eyebrow">In store</div>
+      <h2 class="sh">Come see us<br>in Kaiapoi.</h2>
+    </div>
+    <p style="font-size:.88rem;color:var(--body);max-width:220px;text-align:right;line-height:1.65">Well laid out, friendly staff, and great prices — every visit.</p>
+  </div>
+  <div class="gallery-grid fade-up">
+    <div class="g-item">
+      <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=900&q=80&fit=crop" alt="2 Fantastic Kaiapoi — variety and gift store">
+      <div class="g-label">Inside the Store</div>
+    </div>
+    <div class="g-item">
+      <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=700&q=80&fit=crop" alt="Gifts at 2 Fantastic Kaiapoi">
+      <div class="g-label">Gifts &amp; Keepsakes</div>
+    </div>
+    <div class="g-item">
+      <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=700&q=80&fit=crop" alt="Party supplies at 2 Fantastic Kaiapoi">
+      <div class="g-label">Party Supplies</div>
+    </div>
+    <div class="g-item">
+      <img src="https://images.unsplash.com/photo-1455819932896-a4498cd61c04?w=700&q=80&fit=crop" alt="Stationery at 2 Fantastic Kaiapoi">
+      <div class="g-label">Stationery</div>
+    </div>
+    <div class="g-item">
+      <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=700&q=80&fit=crop" alt="Cosmetics at 2 Fantastic Kaiapoi">
+      <div class="g-label">Cosmetics</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img fade-up">
+      <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&q=80&fit=crop" alt="2 Fantastic Kaiapoi — your local variety store">
+      <div class="about-img-badge">
+        <div class="about-img-badge-n">4.3★</div>
+        <div class="about-img-badge-l">Google<br>Rating</div>
+      </div>
+    </div>
+    <div class="fade-up">
+      <div class="eyebrow">About us</div>
+      <h2 class="sh">Your neighbourhood<br>store for everything.</h2>
+      <p class="sec-body">2 Fantastic Kaiapoi is a locally-owned variety and gift store on Hilton Street, right next to CBK, McDonald's and Woolworths. We stock a huge range of affordable gifts, toys, stationery, cosmetics, party supplies, and kitchen essentials — all in one place. Whether you need a last-minute birthday gift or a full party set-up, we've got you covered.</p>
+      <div class="about-list">
+        <div class="a-item">
+          <div class="a-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="a-item-text">
+            <strong>Always something new in store</strong>
+            <span>Our range is always evolving — come in regularly and you'll always find something fresh.</span>
+          </div>
+        </div>
+        <div class="a-item">
+          <div class="a-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="a-item-text">
+            <strong>Affordable prices, every day</strong>
+            <span>Great quality at prices that make sense — no loyalty cards or membership needed.</span>
+          </div>
+        </div>
+        <div class="a-item">
+          <div class="a-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="a-item-text">
+            <strong>Free off-street parking</strong>
+            <span>Easy to find and easy to park — no fighting for a space on the street.</span>
+          </div>
+        </div>
+        <div class="a-item">
+          <div class="a-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="a-item-text">
+            <strong>Friendly local team</strong>
+            <span>Our staff are always happy to help you find exactly what you're looking for.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="reviews-layout fade-up">
+    <div class="g-badge">
+      <div class="g-badge-lbl">Google Rating</div>
+      <div class="g-score">4.3</div>
+      <div class="g-stars">
+        <span class="g-star">★</span><span class="g-star">★</span><span class="g-star">★</span><span class="g-star">★</span><span class="g-star" style="opacity:.4">★</span>
+      </div>
+      <div class="g-count">49 reviews on Google</div>
+      <a href="#contact" class="rev-btn">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        Leave a Review
+      </a>
+    </div>
+    <div class="reviews-intro">
+      <div class="eyebrow" style="color:var(--coral)">What customers say</div>
+      <h2 class="sh" style="color:#fff">Kaiapoi locals<br>love us.</h2>
+      <p>Friendly service, great variety, and prices that make sense. Here's what our customers say about shopping at 2 Fantastic.</p>
+    </div>
+  </div>
+  <div class="reviews-grid fade-up">
+    <div class="rev-card">
+      <div class="rev-header">
+        <div class="rev-avatar" style="background:linear-gradient(135deg,#f97316,#ea6c0b)">K</div>
+        <div>
+          <div class="rev-name">Kate M.</div>
+          <div class="rev-loc">Kaiapoi</div>
+        </div>
+      </div>
+      <div class="rev-stars"><span class="r-star">★</span><span class="r-star">★</span><span class="r-star">★</span><span class="r-star">★</span><span class="r-star">★</span></div>
+      <p class="rev-text">"Great little store — has everything you need for gifts, parties, and everyday bits. Staff are super friendly and the prices are really reasonable. My go-to in Kaiapoi!"</p>
+      <div class="rev-src">
+        <svg width="11" height="11" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Google Review · Kaiapoi
+      </div>
+    </div>
+    <div class="rev-card">
+      <div class="rev-header">
+        <div class="rev-avatar" style="background:linear-gradient(135deg,#22223b,#2d2d44)">J</div>
+        <div>
+          <div class="rev-name">James R.</div>
+          <div class="rev-loc">Rangiora</div>
+        </div>
+      </div>
+      <div class="rev-stars"><span class="r-star">★</span><span class="r-star">★</span><span class="r-star">★</span><span class="r-star">★</span><span class="r-star">★</span></div>
+      <p class="rev-text">"Found the perfect birthday present here — so many options and all at really good prices. The shop is well laid out and easy to browse. Will definitely be back!"</p>
+      <div class="rev-src">
+        <svg width="11" height="11" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Google Review · Rangiora
+      </div>
+    </div>
+    <div class="rev-card">
+      <div class="rev-header">
+        <div class="rev-avatar" style="background:linear-gradient(135deg,#b45309,#f97316)">S</div>
+        <div>
+          <div class="rev-name">Sarah L.</div>
+          <div class="rev-loc">Kaiapoi</div>
+        </div>
+      </div>
+      <div class="rev-stars"><span class="r-star">★</span><span class="r-star">★</span><span class="r-star">★</span><span class="r-star">★</span><span class="r-star">★</span></div>
+      <p class="rev-text">"Love this shop! Always find something I need — stationery, toys, little gifts. Great for party supplies too. The off-street parking makes it so easy. Highly recommend to everyone in Kaiapoi!"</p>
+      <div class="rev-src">
+        <svg width="11" height="11" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Google Review · Kaiapoi
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info fade-up">
+      <div class="eyebrow">Get in touch</div>
+      <h2 class="sh">Come visit us<br>in Kaiapoi.</h2>
+      <p>We'd love to see you in store. Whether you have a question or just want to browse — pop in, say hello, and discover what's new.</p>
+      <div class="contact-details">
+        <div class="c-row">
+          <div class="c-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l1.92-1.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="c-label">Phone</div>
+            <a href="tel:033270508" class="c-val">03 327 0508</a>
+          </div>
+        </div>
+        <div class="c-row">
+          <div class="c-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="c-label">Address</div>
+            <span class="c-val" style="cursor:default">8A/77 Hilton Street, Kaiapoi 7630</span>
+            <span style="font-size:.82rem;color:var(--body);display:block;margin-top:.1rem">Next to CBK, McDonald's &amp; Woolworths</span>
+          </div>
+        </div>
+        <div class="c-row">
+          <div class="c-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </div>
+          <div>
+            <div class="c-label">Follow Us</div>
+            <a href="https://www.facebook.com/2Fantastickaiapoichch/" target="_blank" rel="noopener" class="c-val">Facebook — @2Fantastickaiapoichch</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fade-up">
+      <div class="contact-form-wrap">
+        <div class="form-title">Send Us a Message</div>
+        <form action="https://api.staticforms.xyz/submit" method="post" id="contactForm">
+          <input type="hidden" name="apiKey" value="sf_768da8d33927e7f4f241d0a6">
+          <input type="hidden" name="subject" value="New enquiry — 2 Fantastic Kaiapoi">
+          <input type="hidden" name="replyTo" value="@">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First name</label>
+              <input type="text" name="firstName" placeholder="Jane" required>
+            </div>
+            <div class="form-group">
+              <label>Last name</label>
+              <input type="text" name="lastName" placeholder="Smith" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="jane@email.com" required>
+          </div>
+          <div class="form-group">
+            <label>What can we help with?</label>
+            <select name="service" required>
+              <option value="" disabled selected>Choose a topic…</option>
+              <option>Product enquiry</option>
+              <option>Store hours</option>
+              <option>Party supply order</option>
+              <option>Gift ideas &amp; recommendations</option>
+              <option>Feedback</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea name="message" placeholder="What would you like to know? We're happy to help." required></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="formBtn">Send Message →</button>
+          <p class="form-note">We'll get back to you as soon as we can.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="foot-brand">2 <span class="acc">Fantastic</span> Kaiapoi</div>
+    <div class="foot-sub">Gift &amp; Variety Store · 8A/77 Hilton Street, Kaiapoi 7630</div>
+    <div class="foot-copy">© 2025 2 Fantastic Kaiapoi · 03 327 0508</div>
+  </div>
+  <div class="foot-links">
+    <a href="#stock">What We Stock</a>
+    <a href="#about">About</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+
+const hamburger = document.getElementById('hamburger');
+const mobMenu = document.getElementById('mobMenu');
+hamburger.addEventListener('click', () => mobMenu.classList.toggle('open'));
+function closeMob() { mobMenu.classList.remove('open'); }
+
+const observer = new IntersectionObserver(
+  entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }),
+  { threshold: 0.07 }
+);
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('formBtn');
+  btn.textContent = 'Sending…'; btn.disabled = true;
+  const data = {};
+  new FormData(this).forEach((v, k) => data[k] = v);
+  try {
+    const res = await fetch('https://api.staticforms.xyz/submit', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data)
+    });
+    const json = await res.json();
+    if (json.success) {
+      btn.textContent = '✓ Message sent!';
+      btn.style.background = '#22c55e';
+      this.reset();
+    } else {
+      btn.textContent = 'Error — try again';
+      btn.style.background = '#ef4444';
+      btn.disabled = false;
+    }
+  } catch {
+    btn.textContent = 'Network error — try again';
+    btn.style.background = '#ef4444';
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
